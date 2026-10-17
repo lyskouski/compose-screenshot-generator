@@ -1,6 +1,3 @@
-// Copyright 2026 Viachaslau Lyskouski. All rights reserved.
-// Use of this source code is governed by an MIT license that can be found in the LICENSE file.
-
 package io.github.lyskouski.screenshot
 
 import kotlin.time.Duration
