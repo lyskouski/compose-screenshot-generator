@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.compose.multiplatform)
-    `maven-publish`
+    alias(libs.plugins.maven.publish)
 }
 
 group = property("GROUP") as String
@@ -46,29 +46,30 @@ tasks.withType<JavaCompile>().configureEach {
     options.release.set(17)
 }
 
-publishing {
-    publications.withType<MavenPublication>().configureEach {
-        pom {
-            name.set("Compose Screenshot Generator")
-            description.set(
-                "Generate screenshots for a Compose Multiplatform application across different screens and languages.",
-            )
-            url.set("https://github.com/lyskouski/compose_screenshot_generator")
-            licenses {
-                license {
-                    name.set("MIT License")
-                    url.set("https://opensource.org/licenses/MIT")
-                }
+mavenPublishing {
+    publishToMavenCentral()
+    signAllPublications()
+
+    pom {
+        name.set("Compose Screenshot Generator")
+        description.set(
+            "Generate screenshots for a Compose Multiplatform application across different screens and languages.",
+        )
+        url.set("https://github.com/lyskouski/compose-screenshot-generator")
+        licenses {
+            license {
+                name.set("MIT License")
+                url.set("https://opensource.org/licenses/MIT")
             }
-            developers {
-                developer {
-                    id.set("lyskouski")
-                    name.set("Viachaslau Lyskouski")
-                }
+        }
+        developers {
+            developer {
+                id.set("lyskouski")
+                name.set("Viachaslau Lyskouski")
             }
-            scm {
-                url.set("https://github.com/lyskouski/compose_screenshot_generator")
-            }
+        }
+        scm {
+            url.set("https://github.com/lyskouski/compose-screenshot-generator")
         }
     }
 }

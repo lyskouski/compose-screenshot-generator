@@ -2,3 +2,4 @@
 .kotlin/
 build/
 *.iml
+*.gpg
